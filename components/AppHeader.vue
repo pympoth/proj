@@ -35,7 +35,7 @@ function test(){
     <button v-on:click="test">Личный кабинет</button>
     <button class="tri">Корзина</button>
   </div>
-  <modal v-bind:open="opened" name="registration">
+  <modal v-bind:open="opened" v-bind:key="opened" name="registration" v-on:click="opened = !opened">
     Регистрация
     <input type="text" class="login" />
     <input type="text" class="password" />
@@ -76,7 +76,6 @@ button {
   margin: 0;
   font-family: inherit;
   font-size: inherit;
-  /* position: relative; */
   display: inline-block;
   letter-spacing: 0.05rem;
   font-weight: 100px;
@@ -146,7 +145,6 @@ ul {
   margin: 0;
   font-family: inherit;
   font-size: inherit;
-  /* position: relative; */
   display: inline-block;
   letter-spacing: 0.05rem;
   font-weight: 100px;
@@ -172,5 +170,9 @@ ul {
 .modal {
   font-size: larger;
   font-weight: bolder;
+}
+
+input:hover{
+    box-shadow: 3px 3px 8px 0px #9b54ff;
 }
 </style>

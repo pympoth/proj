@@ -21,7 +21,7 @@ const opened = ref(props.open)
     right: 0;
     bottom: 0;
     left: 0;
-
+    z-index: 10000;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -37,4 +37,5 @@ const opened = ref(props.open)
     box-shadow: -2px 2px 25px 10px #9b54ff;
     
 }
+
 </style>
