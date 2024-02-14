@@ -1,8 +1,8 @@
 <script setup>
 const opened = ref(false);
-function test(){
-    console.log(opened.value)
-    opened.value = !opened.value
+function test() {
+  console.log(opened.value);
+  opened.value = !opened.value;
 }
 </script>
 
@@ -33,9 +33,14 @@ function test(){
       <img src="@/assets/imgs/magnifier.png" alt="" />
     </button>
     <button v-on:click="test">Личный кабинет</button>
-    <button class="tri">Корзина</button>
+    <NuxtLink to="/cart"><button>Корзина</button></NuxtLink>
   </div>
-  <modal v-bind:open="opened" v-bind:key="opened" name="registration" v-on:click="opened = !opened">
+  <modal
+    v-bind:open="opened"
+    v-bind:key="opened"
+    name="registration"
+    v-on:click="opened = !opened"
+  >
     Регистрация
     <input type="text" class="login" />
     <input type="text" class="password" />
@@ -172,7 +177,7 @@ ul {
   font-weight: bolder;
 }
 
-input:hover{
-    box-shadow: 3px 3px 8px 0px #9b54ff;
+input:hover {
+  box-shadow: 3px 3px 8px 0px #9b54ff;
 }
 </style>
