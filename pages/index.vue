@@ -4,6 +4,8 @@ function test() {
   console.log(opened.value);
   opened.value = !opened.value;
 }
+const { data } = await useFetch("/api/items");
+console.log(data.value);
 </script>
 
 
@@ -92,7 +94,8 @@ function test() {
       <img src="@/assets/imgs/foto5.png" alt="" />
     </div>
   </div>
-
+  <!-- {{data.body.printers}}
+<div class="card" v-for="item in data.body.printers" :key="item.id">{{item.name}}</div> -->
   <div class="h3">
     <h3>Лучшие новинки</h3>
   </div>
@@ -124,10 +127,28 @@ function test() {
       <button>Подробнее</button>
       <img src="@/assets/imgs/foto91.png" alt="" />
     </div>
+
+    <div class="action_cards">
+      <div class="card" v-for="item in data.body.printers" :key="item.id">
+        <p>{{ item.name }} {{ item.model }}</p>
+        <p>{{ item.price }}</p>
+        <NuxtLink to="/printer"><button>Подробнее</button></NuxtLink>
+        <img v-bind:src="item.pic" alt="" />
+        {{ item.printers }}
+      </div>
+    </div>
   </div>
 </template>
 
 <style scoped>
+.card img {
+  width: 200px;
+}
+.action_cards {
+  display: flex;
+  align-content: stretch;
+  justify-content: center;
+}
 .user_card {
   padding: 14px;
   width: 255px;
@@ -166,7 +187,7 @@ li {
   transition: 0.6s;
   border: 2px solid rgba(255, 255, 255, 0);
 }
-.card:nth-child(1) {
+.main .card:nth-child(1) {
   background: rgb(246, 242, 184);
   border-radius: 10px;
   box-shadow: 10px 10px 8px 0px rgba(34, 60, 80, 0.55);
@@ -176,17 +197,17 @@ li {
   padding: 14px;
   width: 294px;
 }
-.card:nth-child(2) {
+.main .card:nth-child(2) {
   background: rgb(237, 184, 246);
   border-radius: 10px;
   box-shadow: 10px 10px 8px 0px rgba(34, 60, 80, 0.55);
 }
-.card:nth-child(3) {
+.main .card:nth-child(3) {
   background: rgb(246, 184, 184);
   border-radius: 10px;
   box-shadow: 10px 10px 8px 0px rgba(34, 60, 80, 0.55);
 }
-.card:nth-child(4) {
+.main .card:nth-child(4) {
   background-image: url(assets/imgs/foto1.png);
   border-radius: 10px;
   box-shadow: 10px 10px 8px 0px rgba(34, 60, 80, 0.55);
