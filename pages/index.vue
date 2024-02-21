@@ -65,28 +65,28 @@ console.log(data.value);
   </div>
 
   <div class="actions_cards">
-    <div class="card4">
+    <div class="card">
       <h3>Выгодно в комплекте</h3>
       <p>Принтер лазерный Pantum CP1100</p>
       <p class="price">41 299₽</p>
       <NuxtLink to="/printer"><button>Подробнее</button></NuxtLink>
       <img src="@/assets/imgs/foto2.png" alt="" />
     </div>
-    <div class="card5">
+    <div class="card">
       <h3>Еще 4 дня скидка</h3>
       <p>23.8" Монитор Philips 245E1S черный</p>
       <p class="price">12 499₽</p>
       <button>Подробнее</button>
       <img src="@/assets/imgs/foto3.png" alt="" />
     </div>
-    <div class="card6">
+    <div class="card">
       <h3>Еще 4 дня скидка</h3>
       <p>Робот-пылесос Polaris PVCR 3600 WIFI IQ Home белый</p>
       <p class="price">12 999₽</p>
       <button>Подробнее</button>
       <img src="@/assets/imgs/foto4.png" alt="" />
     </div>
-    <div class="card7">
+    <div class="card">
       <h3>Выгодно в комплекте</h3>
       <p>Набор аккумуляторов и зарядных устройств Makita 191A25-2 LXT 18V</p>
       <p class="price">10 889₽</p>
@@ -100,25 +100,25 @@ console.log(data.value);
     <h3>Лучшие новинки</h3>
   </div>
   <div class="actions_cards">
-    <div class="card8">
+    <div class="card">
       <p>Hоутбук Huawei MateBook D 15 BoDe-WDH9 53013WRP</p>
       <p class="price">49 990₽</p>
       <button>Подробнее</button>
       <img src="@/assets/imgs/foto61.png" alt="" />
     </div>
-    <div class="card9">
+    <div class="card">
       <p>Мини-печь StarWind SMO2023, бежевый</p>
       <p class="price">3990₽</p>
       <button>Подробнее</button>
       <img src="@/assets/imgs/foto7.png" alt="" />
     </div>
-    <div class="card10">
+    <div class="card">
       <p>Ламинатор Buro BU-L280, A4</p>
       <p class="price">₽1990</p>
       <button>Подробнее</button>
       <img src="@/assets/imgs/foto8.png" alt="" />
     </div>
-    <div class="card11">
+    <div class="card">
       <p>
         Планшет Digma CITI 1313C 4G 10.1", 3ГБ, 32GB, 3G, LTE, Android 13
         темно-серый [cs1273pl]
@@ -127,22 +127,31 @@ console.log(data.value);
       <button>Подробнее</button>
       <img src="@/assets/imgs/foto91.png" alt="" />
     </div>
+  </div>
 
-    <div class="action_cards">
-      <div class="card" v-for="item in data.body.printers" :key="item.id">
-        <p>{{ item.name }} {{ item.model }}</p>
-        <p>{{ item.price }}</p>
-        <NuxtLink to="/printer"><button>Подробнее</button></NuxtLink>
-        <img v-bind:src="item.pic" alt="" />
-        {{ item.printers }}
-      </div>
+  <div class="action_cards">
+    <div class="card" v-for="item in data.body.printers" :key="item.id">
+      <p>{{ item.name }} {{ item.model }}</p>
+      <p>{{ item.price }}</p>
+      <NuxtLink to="/printer"><button>Подробнее</button></NuxtLink>
+      <img v-bind:src="item.pic" alt="" />
+      {{ item.printers }}
     </div>
   </div>
 </template>
 
 <style scoped>
-.card img {
+.action_cards{
+  margin-top: 50px;
+  gap: 15px
+}
+
+.action_cards img {
+  position: absolute;
   width: 200px;
+  height: 125px;
+  top: 54px;
+  
 }
 .action_cards {
   display: flex;
@@ -193,10 +202,7 @@ li {
   box-shadow: 10px 10px 8px 0px rgba(34, 60, 80, 0.55);
 }
 
-.card {
-  padding: 14px;
-  width: 294px;
-}
+
 .main .card:nth-child(2) {
   background: rgb(237, 184, 246);
   border-radius: 10px;
@@ -278,7 +284,7 @@ input:hover {
   margin-top: 50px;
 }
 
-.card4 {
+/* .card4 {
   box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.55);
   background: rgb(255, 249, 249);
   padding: 14px;
@@ -287,7 +293,7 @@ input:hover {
   margin-top: 5px;
   height: 237px;
   position: relative;
-}
+} */
 .actions_cards {
   font-size: large;
   font-weight: bold;
@@ -296,7 +302,7 @@ input:hover {
   margin-top: 20px;
 }
 
-.card5 {
+/* .card5 {
   box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.55);
   background: rgb(255, 249, 249);
   padding: 14px;
@@ -304,9 +310,9 @@ input:hover {
   border-radius: 10px;
   margin-top: 5px;
   position: relative;
-}
+} */
 
-.card6 {
+/* .card6 {
   box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.55);
   background: rgb(255, 249, 249);
   padding: 14px;
@@ -315,7 +321,7 @@ input:hover {
   margin-top: 5px;
   margin-top: 5px;
   position: relative;
-}
+} */
 .odin img {
   width: 25px;
 }
@@ -325,7 +331,7 @@ input:hover {
   bottom: 19px;
 }
 
-.card7 {
+/* .card7 {
   box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.55);
   background: rgb(255, 249, 249);
   padding: 14px;
@@ -334,7 +340,7 @@ input:hover {
   margin-top: 5px;
   margin-top: 5px;
   position: relative;
-}
+} */
 
 .price {
   color: rgb(255, 140, 0);
@@ -376,7 +382,19 @@ button:hover span {
 .right {
   width: 1200px;
 }
-.card8 {
+
+.card {
+  padding: 14px;
+  width: 294px;
+  box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.55);
+  background: rgb(255, 249, 249);
+  border-radius: 10px;
+  margin-top: 5px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* .card8 {
   box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.55);
   background: rgb(255, 249, 249);
   padding: 14px;
@@ -417,7 +435,7 @@ button:hover span {
   margin-top: 5px;
   margin-top: 5px;
   position: relative;
-}
+} */
 
 .big_card {
   box-shadow: 0px 0px 8px 7px rgba(34, 60, 80, 0.2);
