@@ -10,6 +10,7 @@ console.log(data.value);
 
 
 <template>
+
   <modal
     v-bind:open="opened"
     v-bind:key="opened"
@@ -141,9 +142,9 @@ console.log(data.value);
 </template>
 
 <style scoped>
-.action_cards{
+.action_cards {
   margin-top: 50px;
-  gap: 15px
+  gap: 15px;
 }
 
 .action_cards img {
@@ -151,7 +152,6 @@ console.log(data.value);
   width: 200px;
   height: 125px;
   top: 54px;
-  
 }
 .action_cards {
   display: flex;
@@ -201,7 +201,6 @@ li {
   border-radius: 10px;
   box-shadow: 10px 10px 8px 0px rgba(34, 60, 80, 0.55);
 }
-
 
 .main .card:nth-child(2) {
   background: rgb(237, 184, 246);
