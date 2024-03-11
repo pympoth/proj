@@ -4,6 +4,23 @@ const comments = ref();
 fetch("https://jsonplaceholder.typicode.com/posts/1/comments")
   .then((response) => response.json())
   .then((json) => (comments.value = json));
+// if (process.client) {
+//   localStorage.setItem("phone", 89892131233);
+//   localStorage.setItem("phone", 1934812);
+//   console.log(localStorage.getItem("phone"));
+//   localStorage.removeItem("phone");
+// }
+
+
+
+// function getComment(comment) {
+//   console.log(comment);
+// }
+
+// if (process.client) {
+//   localStorage.setItem("comment", JSON.stringify("comment"));
+//   console.log(JSON.parse(localStorage.getItem("comment")));
+// }
 </script>
 
 <template>
@@ -11,14 +28,18 @@ fetch("https://jsonplaceholder.typicode.com/posts/1/comments")
     <h2>Комментарии</h2>
 
     <div class="comments">
-      <div class="comment" v-for="comment in comments" v-bind:key="comment.id">
+      <div
+        class="comment"
+        v-for="comment in comments"
+        :key="comment.id"
+        @click="getComment(comment)"
+      >
         <h3>{{ comment.email }}</h3>
         <p>{{ comment.body }}</p>
       </div>
     </div>
   </div>
 </template>
-
 
 <style scoped>
 .comment {

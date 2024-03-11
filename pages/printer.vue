@@ -13,16 +13,15 @@
           </p>
           <div class="small_card">
             <section>
-                <div class="buy_button">
-                    <NuxtLink to="/cart"><button class="buy">Купить</button></NuxtLink>
+              <div class="buy_button">
+                <NuxtLink to="/cart"
+                  ><button class="buy">Купить</button></NuxtLink
+                >
                 <div class="price_container">
-                     <h3>41 299 ₽</h3>
-              <p>от 4 026 ₽/ мес.</p>
-              </div>
-              
-                  
-              
+                  <h3>41 299 ₽</h3>
+                  <p>от 4 026 ₽/ мес.</p>
                 </div>
+              </div>
             </section>
             <div class="mini_card">
               <p>В наличие:</p>
@@ -419,15 +418,15 @@ h3 {
 .login {
   display: flex;
 }
-.price_container{
-    display: flex;
-    gap: 10px;
-    flex-direction: column;
+.price_container {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
 }
-.buy_button{
-    gap: 100px;
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: flex-end;
+.buy_button {
+  gap: 100px;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
 }
 </style>

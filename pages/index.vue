@@ -6,11 +6,21 @@ function test() {
 }
 const { data } = await useFetch("/api/items");
 console.log(data.value);
+
+function AddCart(item) {
+  console.log(item);
+  if (process.client) {
+    let items = JSON.parse(localStorage.getItem("items")) || [];
+    items.push(item);
+    localStorage.setItem("items", JSON.stringify(items));
+    console.log(JSON.parse(localStorage.getItem("items")));
+  }
+}
+
 </script>
 
 
 <template>
-
   <modal
     v-bind:open="opened"
     v-bind:key="opened"
@@ -70,28 +80,40 @@ console.log(data.value);
       <h3>Выгодно в комплекте</h3>
       <p>Принтер лазерный Pantum CP1100</p>
       <p class="price">41 299₽</p>
-      <NuxtLink to="/printer"><button>Подробнее</button></NuxtLink>
+      <div class="buttons">
+        <button>В корзину</button>
+        <NuxtLink to="/printer"><button>Подробнее</button></NuxtLink>
+      </div>
       <img src="@/assets/imgs/foto2.png" alt="" />
     </div>
     <div class="card">
       <h3>Еще 4 дня скидка</h3>
       <p>23.8" Монитор Philips 245E1S черный</p>
       <p class="price">12 499₽</p>
-      <button>Подробнее</button>
+      <div class="buttons">
+        <button>В корзину</button>
+        <button>Подробнее</button>
+      </div>
       <img src="@/assets/imgs/foto3.png" alt="" />
     </div>
     <div class="card">
       <h3>Еще 4 дня скидка</h3>
       <p>Робот-пылесос Polaris PVCR 3600 WIFI IQ Home белый</p>
       <p class="price">12 999₽</p>
-      <button>Подробнее</button>
+      <div class="buttons">
+        <button>В корзину</button>
+        <button>Подробнее</button>
+      </div>
       <img src="@/assets/imgs/foto4.png" alt="" />
     </div>
     <div class="card">
       <h3>Выгодно в комплекте</h3>
       <p>Набор аккумуляторов и зарядных устройств Makita 191A25-2 LXT 18V</p>
       <p class="price">10 889₽</p>
-      <button>Подробнее</button>
+      <div class="buttons">
+        <button>В корзину</button>
+        <button>Подробнее</button>
+      </div>
       <img src="@/assets/imgs/foto5.png" alt="" />
     </div>
   </div>
@@ -104,19 +126,28 @@ console.log(data.value);
     <div class="card">
       <p>Hоутбук Huawei MateBook D 15 BoDe-WDH9 53013WRP</p>
       <p class="price">49 990₽</p>
-      <button>Подробнее</button>
+      <div class="buttons">
+        <button>В корзину</button>
+        <button>Подробнее</button>
+      </div>
       <img src="@/assets/imgs/foto61.png" alt="" />
     </div>
     <div class="card">
       <p>Мини-печь StarWind SMO2023, бежевый</p>
       <p class="price">3990₽</p>
-      <button>Подробнее</button>
+      <div class="buttons">
+        <button>В корзину</button>
+        <button>Подробнее</button>
+      </div>
       <img src="@/assets/imgs/foto7.png" alt="" />
     </div>
     <div class="card">
       <p>Ламинатор Buro BU-L280, A4</p>
       <p class="price">₽1990</p>
-      <button>Подробнее</button>
+      <div class="buttons">
+        <button>В корзину</button>
+        <button>Подробнее</button>
+      </div>
       <img src="@/assets/imgs/foto8.png" alt="" />
     </div>
     <div class="card">
@@ -125,7 +156,10 @@ console.log(data.value);
         темно-серый [cs1273pl]
       </p>
       <p class="price">7990₽</p>
-      <button>Подробнее</button>
+      <div class="buttons">
+        <button>В корзину</button>
+        <button>Подробнее</button>
+      </div>
       <img src="@/assets/imgs/foto91.png" alt="" />
     </div>
   </div>
@@ -134,7 +168,11 @@ console.log(data.value);
     <div class="card" v-for="item in data.body.printers" :key="item.id">
       <p>{{ item.name }} {{ item.model }}</p>
       <p>{{ item.price }}</p>
-      <NuxtLink to="/printer"><button>Подробнее</button></NuxtLink>
+      <div class="buttons">
+        <button>В корзину</button>
+        <p v-on:click="AddCart(item)"><button>Подробнее</button></p>
+        <!-- <NuxtLink to="/printer" v-on:click="AddCart(item)"><button>Подробнее</button></NuxtLink> -->
+      </div>
       <img v-bind:src="item.pic" alt="" />
       {{ item.printers }}
     </div>
@@ -486,5 +524,12 @@ ul {
   100% {
     opacity: 1;
   }
+}
+
+.buttons {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 10px;
 }
 </style>
