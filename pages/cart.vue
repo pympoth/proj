@@ -1,8 +1,7 @@
-<script>
+<script setup>
 import { ref } from "vue";
 
 const readersNumber = ref(0);
-
 </script>
 
 
@@ -17,9 +16,10 @@ const readersNumber = ref(0);
           <p>Принтер лазерный Pantum CP1100</p>
 
           <div class="numeric">
-            <!-- <button @click="incrementNumber">➕</button> -->
-            <!-- <p>{{ readersNumber }}</p> -->
-            <!-- <button @click="decrementNumber">➖</button> -->
+            <button @click="incrementNumber">➕</button>
+            <p>{{ readersNumber }}</p>
+
+            <button @click="decrementNumber">➖</button>
           </div>
 
           <div class="buttons"></div>
