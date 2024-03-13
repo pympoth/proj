@@ -16,7 +16,6 @@ function AddCart(item) {
     console.log(JSON.parse(localStorage.getItem("items")));
   }
 }
-
 </script>
 
 

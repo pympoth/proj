@@ -1,9 +1,30 @@
+<script>
+import { ref } from "vue";
+
+const readersNumber = ref(0);
+
+</script>
+
+
 <template>
   <NuxtLink to="/"><button>Назад</button></NuxtLink>
   <div class="container">
     <div class="left"></div>
     <div class="right">
-      <div class="big_card"></div>
+      <div class="big_card">
+        <div class="printer">
+          <img src="@/assets/imgs/foto2.png" alt="" />
+          <p>Принтер лазерный Pantum CP1100</p>
+
+          <div class="numeric">
+            <!-- <button @click="incrementNumber">➕</button> -->
+            <!-- <p>{{ readersNumber }}</p> -->
+            <!-- <button @click="decrementNumber">➖</button> -->
+          </div>
+
+          <div class="buttons"></div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -197,8 +218,8 @@ button {
   background: #9b54ff;
   color: white;
   padding: 10px;
-  min-width: 100px;
   height: 48px;
+  min-width: 100px;
 }
 
 button span {
@@ -258,13 +279,14 @@ button:hover span {
 
 .big_card {
   box-shadow: 0px 0px 8px 7px rgba(34, 60, 80, 0.2);
-  height: 580px;
-  width: 1280px;
+  height: 305px;
+  width: 1330px;
   margin: 15px;
   position: relative;
   display: flex;
   gap: 2px;
   border-radius: 10px;
+  right: 80px;
 }
 
 .menu {
@@ -371,6 +393,37 @@ h3 {
 }
 
 .login {
+  display: flex;
+}
+.big_card img {
+  width: 260px;
+  height: 190px;
+}
+.printer {
+  display: flex;
+}
+.printer p {
+  font-size: 25px;
+  font-weight: bold;
+}
+.mini_card {
+  box-shadow: 0px 0px 8px 7px rgba(34, 60, 80, 0.2);
+  height: 30px;
+  width: 120px;
+}
+input {
+  height: 30px;
+  width: 30px;
+  font-size: 25px;
+}
+
+.printer button {
+  width: 50px;
+  min-width: 0px;
+  font-size: 25px;
+}
+
+.buttons {
   display: flex;
 }
 </style>
