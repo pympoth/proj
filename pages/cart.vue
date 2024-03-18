@@ -1,7 +1,13 @@
 <script setup>
+
 import { ref } from "vue";
 
 const readersNumber = ref(0);
+
+function decrement() {
+  readersNumber.value--;
+  if (readersNumber.value < 0) readersNumber.value = 0;
+}
 </script>
 
 
@@ -12,16 +18,138 @@ const readersNumber = ref(0);
     <div class="right">
       <div class="big_card">
         <div class="printer">
-          <img src="@/assets/imgs/foto2.png" alt="" />
-          <p>Принтер лазерный Pantum CP1100</p>
+          <div class="buttonundimg">
+            <div class="instore">
+              <div class="instore1">
+              <a href="">в 7 магазинах</a>
+              <p>В наличие:</p>
+              </div>
+              <div class="numeric">
+                <button @click="readersNumber++">➕</button>
+                <p>{{ readersNumber }}</p>
+                <button @click="decrement">➖</button>
+              </div>
+            </div>
 
-          <div class="numeric">
-            <button @click="incrementNumber">➕</button>
-            <p>{{ readersNumber }}</p>
-
-            <button @click="decrementNumber">➖</button>
+            <img src="@/assets/imgs/foto2.png" alt="" />
           </div>
 
+          <p>Принтер лазерный Pantum CP1100</p>
+          <div class="buttons"></div>
+        </div>
+      </div>
+            <div class="big_card">
+        <div class="printer">
+          <div class="buttonundimg">
+            <div class="instore">
+              <div class="instore1">
+              <a href="">в 7 магазинах</a>
+              <p>В наличие:</p>
+              </div>
+              <div class="numeric">
+                <button @click="readersNumber++">➕</button>
+                <p>{{ readersNumber }}</p>
+                <button @click="decrement">➖</button>
+              </div>
+            </div>
+
+            <img src="https://p.propartner.ru/get-mpic/1574389/img_id5217548176929971146.jpeg/200x200" alt="" />
+          </div>
+          
+
+          <p>Принтер лазерный Pantum CP1100</p>
+          <div class="buttons"></div>
+        </div>
+      </div>
+                  <div class="big_card">
+        <div class="printer">
+          <div class="buttonundimg">
+            <div class="instore">
+              <div class="instore1">
+              <a href="">в 7 магазинах</a>
+              <p>В наличие:</p>
+              </div>
+              <div class="numeric">
+                <button @click="readersNumber++">➕</button>
+                <p>{{ readersNumber }}</p>
+                <button @click="decrement">➖</button>
+              </div>
+            </div>
+
+            <img src="https://img.mvideo.ru/Pdb/30041770b.jpg" alt="" />
+          </div>
+          
+
+          <p>Принтер лазерный Pantum CP1100</p>
+          <div class="buttons"></div>
+        </div>
+      </div>
+                  <div class="big_card">
+        <div class="printer">
+          <div class="buttonundimg">
+            <div class="instore">
+              <div class="instore1">
+              <a href="">в 7 магазинах</a>
+              <p>В наличие:</p>
+              </div>
+              <div class="numeric">
+                <button @click="readersNumber++">➕</button>
+                <p>{{ readersNumber }}</p>
+                <button @click="decrement">➖</button>
+              </div>
+            </div>
+
+            <img src="https://p.propartner.ru/get-mpic/1574389/img_id5217548176929971146.jpeg/200x200" alt="" />
+          </div>
+          
+
+          <p>Принтер лазерный Pantum CP1100</p>
+          <div class="buttons"></div>
+        </div>
+      </div>
+                  <div class="big_card">
+        <div class="printer">
+          <div class="buttonundimg">
+            <div class="instore">
+              <div class="instore1">
+              <a href="">в 7 магазинах</a>
+              <p>В наличие:</p>
+              </div>
+              <div class="numeric">
+                <button @click="readersNumber++">➕</button>
+                <p>{{ readersNumber }}</p>
+                <button @click="decrement">➖</button>
+              </div>
+            </div>
+
+            <img src="https://p.propartner.ru/get-mpic/1574389/img_id5217548176929971146.jpeg/200x200" alt="" />
+          </div>
+          
+
+          <p>Принтер лазерный Pantum CP1100</p>
+          <div class="buttons"></div>
+        </div>
+      </div>
+                  <div class="big_card">
+        <div class="printer">
+          <div class="buttonundimg">
+            <div class="instore">
+              <div class="instore1">
+              <a href="">в 7 магазинах</a>
+              <p>В наличие:</p>
+              </div>
+              <div class="numeric">
+                <button @click="readersNumber++">➕</button>
+                <p>{{ readersNumber }}</p>
+                <button @click="decrement">➖</button>
+              </div>
+            </div>
+
+            <img src="https://p.propartner.ru/get-mpic/1574389/img_id5217548176929971146.jpeg/200x200" alt="" />
+          </div>
+          
+
+          <p>Принтер лазерный Pantum CP1100</p>
           <div class="buttons"></div>
         </div>
       </div>
@@ -405,6 +533,8 @@ h3 {
 .printer p {
   font-size: 25px;
   font-weight: bold;
+  height: 30px;
+  margin: 0;
 }
 .mini_card {
   box-shadow: 0px 0px 8px 7px rgba(34, 60, 80, 0.2);
@@ -420,10 +550,33 @@ input {
 .printer button {
   width: 50px;
   min-width: 0px;
-  font-size: 25px;
+  font-size: 20px;
 }
 
 .buttons {
   display: flex;
+}
+.numeric {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: baseline;
+  background: #9b54ff;
+  height: 48px;
+  border-radius: 10px;
+}
+
+.buttonundimg {
+  display: flex;
+  align-items: baseline;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: space-between;
+}
+.numeric p {
+  color: white;
+}
+.instore1 p {
+  font-size: 17px;
 }
 </style>

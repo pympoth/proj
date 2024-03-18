@@ -169,7 +169,7 @@ function AddCart(item) {
       <p>{{ item.price }}</p>
       <div class="buttons">
         <button>В корзину</button>
-        <p v-on:click="AddCart(item)"><button>Подробнее</button></p>
+        <p v-on:click="AddCart(item)"><NuxtLink to="cart"><button>подробнее</button></NuxtLink></p>
         <!-- <NuxtLink to="/printer" v-on:click="AddCart(item)"><button>Подробнее</button></NuxtLink> -->
       </div>
       <img v-bind:src="item.pic" alt="" />
