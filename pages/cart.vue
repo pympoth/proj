@@ -1,5 +1,4 @@
 <script setup>
-
 import { ref } from "vue";
 
 const readersNumber = ref(0);
@@ -7,6 +6,31 @@ const readersNumber = ref(0);
 function decrement() {
   readersNumber.value--;
   if (readersNumber.value < 0) readersNumber.value = 0;
+}
+const readersNumber2 = ref(0);
+function decrement2() {
+  readersNumber2.value--;
+  if (readersNumber2.value < 0) readersNumber2.value = 0;
+}
+const readersNumber3 = ref(0);
+function decrement3() {
+  readersNumber3.value--;
+  if (readersNumber3.value < 0) readersNumber3.value = 0;
+}
+const readersNumber4 = ref(0);
+function decrement4() {
+  readersNumber4.value--;
+  if (readersNumber4.value < 0) readersNumber4.value = 0;
+}
+const readersNumber5 = ref(0);
+function decrement5() {
+  readersNumber5.value--;
+  if (readersNumber5.value < 0) readersNumber5.value = 0;
+}
+let printers = []
+if (process.client) {
+  printers = JSON.parse(localStorage.getItem("items"));
+  console.log(printers)
 }
 </script>
 
@@ -16,143 +40,276 @@ function decrement() {
   <div class="container">
     <div class="left"></div>
     <div class="right">
+      <div class="big_card" v-for="item in printers" v-bind:key="item">
+        <div class="printer">
+          <div class="buttonundimg">
+            <div class="instore">
+              <div class="instore1">
+                <a href="">в 7 магазинах</a>
+                <p>В наличие:</p>
+              </div>
+              <div class="numeric">
+                <button @click="readersNumber++">➕</button>
+                <p>{{ readersNumber }}</p>
+                <button @click="decrement">➖</button>
+              </div>
+            </div>
+
+            <img :src="item.pic" alt="" />
+          </div>
+
+          <p>{{item.name}} {{item.model}}</p>
+          <div class="buttons"></div>
+        </div>
+      </div>
+            <div class="big_card" v-for="item in monitors" v-bind:key="item">
+        <div class="printer">
+          <div class="buttonundimg">
+            <div class="instore">
+              <div class="instore1">
+                <a href="">в 7 магазинах</a>
+                <p>В наличие:</p>
+              </div>
+              <div class="numeric">
+                <button @click="readersNumber++">➕</button>
+                <p>{{ readersNumber }}</p>
+                <button @click="decrement">➖</button>
+              </div>
+            </div>
+
+            <img :src="item.pic" alt="" />
+          </div>
+
+          <p>{{item.name}} {{item.model}}</p>
+          <div class="buttons"></div>
+        </div>
+      </div>
+            <div class="big_card" v-for="item in robotsCleaners" v-bind:key="item">
+        <div class="printer">
+          <div class="buttonundimg">
+            <div class="instore">
+              <div class="instore1">
+                <a href="">в 7 магазинах</a>
+                <p>В наличие:</p>
+              </div>
+              <div class="numeric">
+                <button @click="readersNumber++">➕</button>
+                <p>{{ readersNumber }}</p>
+                <button @click="decrement">➖</button>
+              </div>
+            </div>
+
+            <img :src="item.pic" alt="" />
+          </div>
+
+          <p>{{item.name}} {{item.model}}</p>
+          <div class="buttons"></div>
+        </div>
+      </div> 
+           <div class="big_card" v-for="item in chargingStation" v-bind:key="item">
+        <div class="printer">
+          <div class="buttonundimg">
+            <div class="instore">
+              <div class="instore1">
+                <a href="">в 7 магазинах</a>
+                <p>В наличие:</p>
+              </div>
+              <div class="numeric">
+                <button @click="readersNumber++">➕</button>
+                <p>{{ readersNumber }}</p>
+                <button @click="decrement">➖</button>
+              </div>
+            </div>
+
+            <img :src="item.pic" alt="" />
+          </div>
+
+          <p>{{item.name}} {{item.model}}</p>
+          <div class="buttons"></div>
+        </div>
+      </div>
+            <div class="big_card" v-for="item in notepads" v-bind:key="item">
+        <div class="printer">
+          <div class="buttonundimg">
+            <div class="instore">
+              <div class="instore1">
+                <a href="">в 7 магазинах</a>
+                <p>В наличие:</p>
+              </div>
+              <div class="numeric">
+                <button @click="readersNumber++">➕</button>
+                <p>{{ readersNumber }}</p>
+                <button @click="decrement">➖</button>
+              </div>
+            </div>
+
+            <img :src="item.pic" alt="" />
+          </div>
+
+          <p>{{item.name}} {{item.model}}</p>
+          <div class="buttons"></div>
+        </div>
+      </div>
+            <div class="big_card" v-for="item in miniOvens" v-bind:key="item">
+        <div class="printer">
+          <div class="buttonundimg">
+            <div class="instore">
+              <div class="instore1">
+                <a href="">в 7 магазинах</a>
+                <p>В наличие:</p>
+              </div>
+              <div class="numeric">
+                <button @click="readersNumber++">➕</button>
+                <p>{{ readersNumber }}</p>
+                <button @click="decrement">➖</button>
+              </div>
+            </div>
+
+            <img :src="item.pic" alt="" />
+          </div>
+
+          <p>{{item.name}} {{item.model}}</p>
+          <div class="buttons"></div>
+        </div>
+      </div>
+            <div class="big_card" v-for="item in laminators" v-bind:key="item">
+        <div class="printer">
+          <div class="buttonundimg">
+            <div class="instore">
+              <div class="instore1">
+                <a href="">в 7 магазинах</a>
+                <p>В наличие:</p>
+              </div>
+              <div class="numeric">
+                <button @click="readersNumber++">➕</button>
+                <p>{{ readersNumber }}</p>
+                <button @click="decrement">➖</button>
+              </div>
+            </div>
+
+            <img :src="item.pic" alt="" />
+          </div>
+
+          <p>{{item.name}} {{item.model}}</p>
+          <div class="buttons"></div>
+        </div>
+      </div>
+            <div class="big_card" v-for="item in tablets" v-bind:key="item">
+        <div class="printer">
+          <div class="buttonundimg">
+            <div class="instore">
+              <div class="instore1">
+                <a href="">в 7 магазинах</a>
+                <p>В наличие:</p>
+              </div>
+              <div class="numeric">
+                <button @click="readersNumber++">➕</button>
+                <p>{{ readersNumber }}</p>
+                <button @click="decrement">➖</button>
+              </div>
+            </div>
+
+            <img :src="item.pic" alt="" />
+          </div>
+
+          <p>{{item.name}} {{item.model}}</p>
+          <div class="buttons"></div>
+        </div>
+      </div>
+      <!-- <div class="big_card">
+        <div class="printer">
+          <div class="buttonundimg">
+            <div class="instore">
+              <div class="instore1">
+                <a href="">в 3 магазинах</a>
+                <p>В наличие:</p>
+              </div>
+              <div class="numeric">
+                <button @click="readersNumber2++">➕</button>
+                <p>{{ readersNumber2 }}</p>
+                <button @click="decrement2">➖</button>
+              </div>
+            </div>
+
+            <img
+              src="https://p.propartner.ru/get-mpic/1574389/img_id5217548176929971146.jpeg/200x200"
+              alt=""
+            />
+          </div>
+
+          <p>Принтер лазерный Pantum CP1100</p>
+          <div class="buttons"></div>
+        </div>
+      </div>
       <div class="big_card">
         <div class="printer">
           <div class="buttonundimg">
             <div class="instore">
               <div class="instore1">
-              <a href="">в 7 магазинах</a>
-              <p>В наличие:</p>
+                <a href="">в 21 магазинах</a>
+                <p>В наличие:</p>
               </div>
               <div class="numeric">
-                <button @click="readersNumber++">➕</button>
-                <p>{{ readersNumber }}</p>
-                <button @click="decrement">➖</button>
-              </div>
-            </div>
-
-            <img src="@/assets/imgs/foto2.png" alt="" />
-          </div>
-
-          <p>Принтер лазерный Pantum CP1100</p>
-          <div class="buttons"></div>
-        </div>
-      </div>
-            <div class="big_card">
-        <div class="printer">
-          <div class="buttonundimg">
-            <div class="instore">
-              <div class="instore1">
-              <a href="">в 7 магазинах</a>
-              <p>В наличие:</p>
-              </div>
-              <div class="numeric">
-                <button @click="readersNumber++">➕</button>
-                <p>{{ readersNumber }}</p>
-                <button @click="decrement">➖</button>
-              </div>
-            </div>
-
-            <img src="https://p.propartner.ru/get-mpic/1574389/img_id5217548176929971146.jpeg/200x200" alt="" />
-          </div>
-          
-
-          <p>Принтер лазерный Pantum CP1100</p>
-          <div class="buttons"></div>
-        </div>
-      </div>
-                  <div class="big_card">
-        <div class="printer">
-          <div class="buttonundimg">
-            <div class="instore">
-              <div class="instore1">
-              <a href="">в 7 магазинах</a>
-              <p>В наличие:</p>
-              </div>
-              <div class="numeric">
-                <button @click="readersNumber++">➕</button>
-                <p>{{ readersNumber }}</p>
-                <button @click="decrement">➖</button>
+                <button @click="readersNumber3++">➕</button>
+                <p>{{ readersNumber3 }}</p>
+                <button @click="decrement3">➖</button>
               </div>
             </div>
 
             <img src="https://img.mvideo.ru/Pdb/30041770b.jpg" alt="" />
           </div>
-          
 
           <p>Принтер лазерный Pantum CP1100</p>
           <div class="buttons"></div>
         </div>
       </div>
-                  <div class="big_card">
+      <div class="big_card">
         <div class="printer">
           <div class="buttonundimg">
             <div class="instore">
               <div class="instore1">
-              <a href="">в 7 магазинах</a>
-              <p>В наличие:</p>
+                <a href="">в 6 магазинах</a>
+                <p>В наличие:</p>
               </div>
               <div class="numeric">
-                <button @click="readersNumber++">➕</button>
-                <p>{{ readersNumber }}</p>
-                <button @click="decrement">➖</button>
+                <button @click="readersNumber4++">➕</button>
+                <p>{{ readersNumber4 }}</p>
+                <button @click="decrement4">➖</button>
               </div>
             </div>
 
-            <img src="https://p.propartner.ru/get-mpic/1574389/img_id5217548176929971146.jpeg/200x200" alt="" />
+            <img src="https://img.mvideo.ru/Pdb/30032666b.jpg" alt="" />
           </div>
-          
 
           <p>Принтер лазерный Pantum CP1100</p>
           <div class="buttons"></div>
         </div>
       </div>
-                  <div class="big_card">
+      <div class="big_card">
         <div class="printer">
           <div class="buttonundimg">
             <div class="instore">
               <div class="instore1">
-              <a href="">в 7 магазинах</a>
-              <p>В наличие:</p>
+                <a href="">в 3 магазинах</a>
+                <p>В наличие:</p>
               </div>
               <div class="numeric">
-                <button @click="readersNumber++">➕</button>
-                <p>{{ readersNumber }}</p>
-                <button @click="decrement">➖</button>
+                <button @click="readersNumber5++">➕</button>
+                <p>{{ readersNumber5 }}</p>
+                <button @click="decrement5">➖</button>
               </div>
             </div>
 
-            <img src="https://p.propartner.ru/get-mpic/1574389/img_id5217548176929971146.jpeg/200x200" alt="" />
+            <img
+              src="https://ir.ozone.ru/s3/multimedia-1/c1000/6782417461.jpg"
+              alt=""
+            />
           </div>
-          
 
           <p>Принтер лазерный Pantum CP1100</p>
           <div class="buttons"></div>
         </div>
-      </div>
-                  <div class="big_card">
-        <div class="printer">
-          <div class="buttonundimg">
-            <div class="instore">
-              <div class="instore1">
-              <a href="">в 7 магазинах</a>
-              <p>В наличие:</p>
-              </div>
-              <div class="numeric">
-                <button @click="readersNumber++">➕</button>
-                <p>{{ readersNumber }}</p>
-                <button @click="decrement">➖</button>
-              </div>
-            </div>
-
-            <img src="https://p.propartner.ru/get-mpic/1574389/img_id5217548176929971146.jpeg/200x200" alt="" />
-          </div>
-          
-
-          <p>Принтер лазерный Pantum CP1100</p>
-          <div class="buttons"></div>
-        </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
@@ -308,6 +465,7 @@ input:hover {
   position: absolute;
   right: 17px;
   bottom: 19px;
+  right: 8px;
 }
 
 .card7 {

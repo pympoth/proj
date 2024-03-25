@@ -23,7 +23,7 @@ export default defineEventHandler((event) => {
         { id: 4, name: 'Робот-пылесос Neato', price: 18000, model: 'D450', pic: 'https://qrobots.ru/wp-content/uploads/9hq-3355.jpeg' },
         { id: 5, name: 'Робот-пылесос Samsung', price: 15000, model: 'POWERbot VR20T6001MW/SC', pic: 'https://images.samsung.com/is/image/samsung/ru-samsung-powerbot-vr7000m-vr10m7010uw-ev-dynamicwhite-68146954?$650_519_PNG$' }
       ],
-      chargingStantion: [
+      chargingStation: [
         { id: 1, name: 'Набор аккумуляторов и зарядных устройств Makita', price: 10889, model: '191A25-2 LXT 18V', pic: 'https://ir.ozone.ru/s3/multimedia-b/c1000/6699256139.jpg' },
         { id: 2, name: 'Набор аккумуляторов и зарядных устройств Makita 2', price: 11999, model: '191A25-3 LXT 18V', pic: 'https://ir.ozone.ru/s3/multimedia-r/c1000/6354181563.jpg' },
         { id: 3, name: 'Зарядная станция для электромобиля', price: 35000, model: 'Tesla Wall Connector', pic: 'https://electricmotorsclub.ru/upload/iblock/664/66433317752247149f6d93ae8f7bf68e.png' },
@@ -42,7 +42,7 @@ export default defineEventHandler((event) => {
         { id: 2, name: 'Мини-печь StarWind черный', price: 4290, model: 'SMO2023-B', pic: 'https://cdn.citilink.ru/gM1nWadDugc-VoL73TXxKZaHb60N2FocxNWH_apR-Vo/resizing_type:fit/gravity:sm/width:400/height:400/plain/product-images/10067d1a-0eca-4cbf-a2ea-41fdbae41a33.jpg' },
         { id: 3, name: 'Мультиварка', price: 5000, model: 'Redmond RMC-M90', pic: 'https://static.onlinetrade.ru/img/items/m/redmond_rmc_m90_cherniy_1.jpg' },
         { id: 4, name: 'Духовка Samsung', price: 15000, model: 'NV75N5671RS', pic: 'https://www.tradeinn.com/f/13775/137754243_2/samsung-nv75n5671rs-ec-%D0%94%D0%B2%D0%BE%D0%B9%D0%BD%D0%BE%D0%B9-%D0%BF%D0%BE%D0%B2%D0%B0%D1%80-flex-75%D0%BB-%D0%9C%D0%BD%D0%BE%D0%B3%D0%BE%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D0%BE%D0%BD%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9-%D0%94%D1%83%D1%85%D0%BE%D0%B2%D0%BE%D0%B9-%D1%88%D0%BA%D0%B0%D1%84.jpg' },
-        { id: 5, name: 'Хлебопечка Panasonic', price: 8000, model: 'SD-YR2550', pic: 'https://ae01.alicdn.com/kf/S39de339b911a4d8e982c53bd83228484b.jpeg' }
+        { id: 5, name: 'Хлебопечка Panasonic', price: 8000, model: 'SD-YR2550', pic: 'https://ir.ozone.ru/s3/multimedia-l/c1000/6251743701.jpg' }
       ],
       laminators: [
         { id: 1, name: 'Ламинатор Buro', price: 1990, model: 'BU-L280 A4', pic: 'https://www.nps.ru/upload/iblock/634/buro_bu_l280_bu_l280_big_00_00012851.jpg' },

@@ -37,7 +37,8 @@ function AddCart(item) {
       <div class="card">
         <h3>Личный кабинет</h3>
         <p>Получайте бонусы,отслеживайте заказы и делитесь мнением</p>
-        <button v-on:click="test">Войти</button><button>Мои заказы</button>
+        <button v-on:click="test">Войти</button
+        ><NuxtLink to="/cart"><button>Мои заказы</button></NuxtLink>
       </div>
       <div class="card">
         <h3>Акции</h3>
@@ -80,7 +81,7 @@ function AddCart(item) {
       <p>Принтер лазерный Pantum CP1100</p>
       <p class="price">41 299₽</p>
       <div class="buttons">
-        <button>В корзину</button>
+        <NuxtLink to="/cart"><button>В корзину</button></NuxtLink>
         <NuxtLink to="/printer"><button>Подробнее</button></NuxtLink>
       </div>
       <img src="@/assets/imgs/foto2.png" alt="" />
@@ -90,7 +91,7 @@ function AddCart(item) {
       <p>23.8" Монитор Philips 245E1S черный</p>
       <p class="price">12 499₽</p>
       <div class="buttons">
-        <button>В корзину</button>
+        <NuxtLink to="/cart"><button>В корзину</button></NuxtLink>
         <button>Подробнее</button>
       </div>
       <img src="@/assets/imgs/foto3.png" alt="" />
@@ -100,7 +101,7 @@ function AddCart(item) {
       <p>Робот-пылесос Polaris PVCR 3600 WIFI IQ Home белый</p>
       <p class="price">12 999₽</p>
       <div class="buttons">
-        <button>В корзину</button>
+        <NuxtLink to="/cart"><button>В корзину</button></NuxtLink>
         <button>Подробнее</button>
       </div>
       <img src="@/assets/imgs/foto4.png" alt="" />
@@ -110,7 +111,7 @@ function AddCart(item) {
       <p>Набор аккумуляторов и зарядных устройств Makita 191A25-2 LXT 18V</p>
       <p class="price">10 889₽</p>
       <div class="buttons">
-        <button>В корзину</button>
+        <NuxtLink to="/cart"><button>В корзину</button></NuxtLink>
         <button>Подробнее</button>
       </div>
       <img src="@/assets/imgs/foto5.png" alt="" />
@@ -126,7 +127,7 @@ function AddCart(item) {
       <p>Hоутбук Huawei MateBook D 15 BoDe-WDH9 53013WRP</p>
       <p class="price">49 990₽</p>
       <div class="buttons">
-        <button>В корзину</button>
+        <NuxtLink to="/cart"><button>В корзину</button></NuxtLink>
         <button>Подробнее</button>
       </div>
       <img src="@/assets/imgs/foto61.png" alt="" />
@@ -135,7 +136,7 @@ function AddCart(item) {
       <p>Мини-печь StarWind SMO2023, бежевый</p>
       <p class="price">3990₽</p>
       <div class="buttons">
-        <button>В корзину</button>
+        <NuxtLink to="/cart"><button>В корзину</button></NuxtLink>
         <button>Подробнее</button>
       </div>
       <img src="@/assets/imgs/foto7.png" alt="" />
@@ -144,7 +145,7 @@ function AddCart(item) {
       <p>Ламинатор Buro BU-L280, A4</p>
       <p class="price">₽1990</p>
       <div class="buttons">
-        <button>В корзину</button>
+        <NuxtLink to="/cart"><button>В корзину</button></NuxtLink>
         <button>Подробнее</button>
       </div>
       <img src="@/assets/imgs/foto8.png" alt="" />
@@ -156,39 +157,150 @@ function AddCart(item) {
       </p>
       <p class="price">7990₽</p>
       <div class="buttons">
-        <button>В корзину</button>
+        <NuxtLink to="/cart"><button>В корзину</button></NuxtLink>
         <button>Подробнее</button>
       </div>
       <img src="@/assets/imgs/foto91.png" alt="" />
     </div>
   </div>
-
+  <h3>Для вас</h3>
   <div class="action_cards">
     <div class="card" v-for="item in data.body.printers" :key="item.id">
       <p>{{ item.name }} {{ item.model }}</p>
-      <p>{{ item.price }}</p>
+      <p class="orange">{{ item.price }}</p>
       <div class="buttons">
-        <button>В корзину</button>
-        <p v-on:click="AddCart(item)"><NuxtLink to="cart"><button>подробнее</button></NuxtLink></p>
+        <NuxtLink to="/cart"><button>В корзину</button></NuxtLink>
+        <p v-on:click="AddCart(item)">
+          <NuxtLink to="cart"><button>подробнее</button></NuxtLink>
+        </p>
         <!-- <NuxtLink to="/printer" v-on:click="AddCart(item)"><button>Подробнее</button></NuxtLink> -->
       </div>
       <img v-bind:src="item.pic" alt="" />
       {{ item.printers }}
     </div>
+
+    <div class="card" v-for="item in data.body.monitors" :key="item.id">
+      <p>{{ item.name }} {{ item.model }}</p>
+      <p class="orange">{{ item.price }}</p>
+      <div class="buttons">
+        <NuxtLink to="/cart"><button>В корзину</button></NuxtLink>
+        <p v-on:click="AddCart(item)">
+          <NuxtLink to="cart"><button>подробнее</button></NuxtLink>
+        </p>
+        <!-- <NuxtLink to="/printer" v-on:click="AddCart(item)"><button>Подробнее</button></NuxtLink> -->
+      </div>
+      <img v-bind:src="item.pic" alt="" />
+      {{ item.monitors }}
+    </div>
+
+    <div class="card" v-for="item in data.body.robotsCleaners" :key="item.id">
+      <p>{{ item.name }} {{ item.model }}</p>
+      <p class="orange">{{ item.price }}</p>
+      <div class="buttons">
+        <NuxtLink to="/cart"><button>В корзину</button></NuxtLink>
+        <p v-on:click="AddCart(item)">
+          <NuxtLink to="cart"><button>подробнее</button></NuxtLink>
+        </p>
+        <!-- <NuxtLink to="/printer" v-on:click="AddCart(item)"><button>Подробнее</button></NuxtLink> -->
+      </div>
+      <img v-bind:src="item.pic" alt="" />
+      {{ item.robotCleaners }}
+    </div>
+
+    <div class="card" v-for="item in data.body.chargingStation" :key="item.id">
+      <p>{{ item.name }} {{ item.model }}</p>
+      <p class="orange">{{ item.price }}</p>
+      <div class="buttons">
+        <NuxtLink to="/cart"><button>В корзину</button></NuxtLink>
+        <p v-on:click="AddCart(item)">
+          <NuxtLink to="cart"><button>подробнее</button></NuxtLink>
+        </p>
+        <!-- <NuxtLink to="/printer" v-on:click="AddCart(item)"><button>Подробнее</button></NuxtLink> -->
+      </div>
+      <img v-bind:src="item.pic" alt="" />
+      {{ item.chargingStation }}
+    </div>
+
+    <div class="card" v-for="item in data.body.notepads" :key="item.id">
+      <p>{{ item.name }} {{ item.model }}</p>
+      <p class="orange">{{ item.price }}</p>
+      <div class="buttons">
+        <NuxtLink to="/cart"><button>В корзину</button></NuxtLink>
+        <p v-on:click="AddCart(item)">
+          <NuxtLink to="cart"><button>подробнее</button></NuxtLink>
+        </p>
+        <!-- <NuxtLink to="/printer" v-on:click="AddCart(item)"><button>Подробнее</button></NuxtLink> -->
+      </div>
+      <img v-bind:src="item.pic" alt="" />
+      {{ item.notepads }}
+    </div>
+
+    <div class="card" v-for="item in data.body.miniOvens" :key="item.id">
+      <p>{{ item.name }} {{ item.model }}</p>
+      <p class="orange">{{ item.price }}</p>
+      <div class="buttons">
+        <NuxtLink to="/cart"><button>В корзину</button></NuxtLink>
+        <p v-on:click="AddCart(item)">
+          <NuxtLink to="cart"><button>подробнее</button></NuxtLink>
+        </p>
+        <!-- <NuxtLink to="/printer" v-on:click="AddCart(item)"><button>Подробнее</button></NuxtLink> -->
+      </div>
+      <img v-bind:src="item.pic" alt="" />
+      {{ item.miniOvens }}
+    </div>
+
+    <div class="card" v-for="item in data.body.laminators" :key="item.id">
+      <p>{{ item.name }} {{ item.model }}</p>
+      <p class="orange">{{ item.price }}</p>
+      <div class="buttons">
+        <NuxtLink to="/cart"><button>В корзину</button></NuxtLink>
+        <p v-on:click="AddCart(item)">
+          <NuxtLink to="cart"><button>подробнее</button></NuxtLink>
+        </p>
+        <!-- <NuxtLink to="/printer" v-on:click="AddCart(item)"><button>Подробнее</button></NuxtLink> -->
+      </div>
+      <img v-bind:src="item.pic" alt="" />
+      {{ item.laminators }}
+    </div>
+
+    <div class="card" v-for="item in data.body.tablets" :key="item.id">
+      <p>{{ item.name }} {{ item.model }}</p>
+      <p class="orange">{{ item.price }}</p>
+      <div class="buttons">
+        <NuxtLink to="/cart"><button>В корзину</button></NuxtLink>
+        <p v-on:click="AddCart(item)">
+          <NuxtLink to="cart"><button>подробнее</button></NuxtLink>
+        </p>
+        <!-- <NuxtLink to="/printer" v-on:click="AddCart(item)"><button>Подробнее</button></NuxtLink> -->
+      </div>
+      <img v-bind:src="item.pic" alt="" />
+      {{ item.tablets }}
+    </div>
   </div>
 </template>
 
 <style scoped>
+.orange {
+  color: rgb(255, 140, 0);
+}
+.action_cards p {
+  font-size: 18px;
+  font-weight: bolder;
+}
 .action_cards {
   margin-top: 50px;
   gap: 15px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .action_cards img {
   position: absolute;
   width: 200px;
   height: 125px;
-  top: 54px;
+  top: 90px;
+  right: 8px;
 }
 .action_cards {
   display: flex;
