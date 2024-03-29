@@ -1,36 +1,28 @@
 <script setup>
 import { ref } from "vue";
 
-const readersNumber = ref(0);
+const readersNumber = ref(1);
 
 function decrement() {
   readersNumber.value--;
-  if (readersNumber.value < 0) readersNumber.value = 0;
+  if (readersNumber.value < 1) readersNumber.value = 1;
 }
-const readersNumber2 = ref(0);
-function decrement2() {
-  readersNumber2.value--;
-  if (readersNumber2.value < 0) readersNumber2.value = 0;
-}
-const readersNumber3 = ref(0);
-function decrement3() {
-  readersNumber3.value--;
-  if (readersNumber3.value < 0) readersNumber3.value = 0;
-}
-const readersNumber4 = ref(0);
-function decrement4() {
-  readersNumber4.value--;
-  if (readersNumber4.value < 0) readersNumber4.value = 0;
-}
-const readersNumber5 = ref(0);
-function decrement5() {
-  readersNumber5.value--;
-  if (readersNumber5.value < 0) readersNumber5.value = 0;
-}
-let printers = []
+let printers = [];
 if (process.client) {
   printers = JSON.parse(localStorage.getItem("items"));
-  console.log(printers)
+  console.log(printers);
+}
+
+function increment(id) {
+  const object = printers.find((obj) => obj.id === id);
+  object.count++;
+
+  let items = printers.filter((obj) => obj.id !== id);
+  items.push(object);
+   if (process.client){
+  localStorage.setItem("items", JSON.stringify(items));
+  }
+  printers = items
 }
 </script>
 
@@ -49,8 +41,8 @@ if (process.client) {
                 <p>В наличие:</p>
               </div>
               <div class="numeric">
-                <button @click="readersNumber++">➕</button>
-                <p>{{ readersNumber }}</p>
+                <button @click="increment(item.id)">➕</button>
+                <p>{{ item.count }}</p>
                 <button @click="decrement">➖</button>
               </div>
             </div>
@@ -58,11 +50,11 @@ if (process.client) {
             <img :src="item.pic" alt="" />
           </div>
 
-          <p>{{item.name}} {{item.model}}</p>
+          <p>{{ item.name }} {{ item.model }}</p>
           <div class="buttons"></div>
         </div>
       </div>
-            <div class="big_card" v-for="item in monitors" v-bind:key="item">
+      <div class="big_card" v-for="item in monitors" v-bind:key="item">
         <div class="printer">
           <div class="buttonundimg">
             <div class="instore">
@@ -80,11 +72,11 @@ if (process.client) {
             <img :src="item.pic" alt="" />
           </div>
 
-          <p>{{item.name}} {{item.model}}</p>
+          <p>{{ item.name }} {{ item.model }}</p>
           <div class="buttons"></div>
         </div>
       </div>
-            <div class="big_card" v-for="item in robotsCleaners" v-bind:key="item">
+      <div class="big_card" v-for="item in robotsCleaners" v-bind:key="item">
         <div class="printer">
           <div class="buttonundimg">
             <div class="instore">
@@ -102,33 +94,11 @@ if (process.client) {
             <img :src="item.pic" alt="" />
           </div>
 
-          <p>{{item.name}} {{item.model}}</p>
-          <div class="buttons"></div>
-        </div>
-      </div> 
-           <div class="big_card" v-for="item in chargingStation" v-bind:key="item">
-        <div class="printer">
-          <div class="buttonundimg">
-            <div class="instore">
-              <div class="instore1">
-                <a href="">в 7 магазинах</a>
-                <p>В наличие:</p>
-              </div>
-              <div class="numeric">
-                <button @click="readersNumber++">➕</button>
-                <p>{{ readersNumber }}</p>
-                <button @click="decrement">➖</button>
-              </div>
-            </div>
-
-            <img :src="item.pic" alt="" />
-          </div>
-
-          <p>{{item.name}} {{item.model}}</p>
+          <p>{{ item.name }} {{ item.model }}</p>
           <div class="buttons"></div>
         </div>
       </div>
-            <div class="big_card" v-for="item in notepads" v-bind:key="item">
+      <div class="big_card" v-for="item in chargingStation" v-bind:key="item">
         <div class="printer">
           <div class="buttonundimg">
             <div class="instore">
@@ -146,11 +116,11 @@ if (process.client) {
             <img :src="item.pic" alt="" />
           </div>
 
-          <p>{{item.name}} {{item.model}}</p>
+          <p>{{ item.name }} {{ item.model }}</p>
           <div class="buttons"></div>
         </div>
       </div>
-            <div class="big_card" v-for="item in miniOvens" v-bind:key="item">
+      <div class="big_card" v-for="item in notepads" v-bind:key="item">
         <div class="printer">
           <div class="buttonundimg">
             <div class="instore">
@@ -168,11 +138,11 @@ if (process.client) {
             <img :src="item.pic" alt="" />
           </div>
 
-          <p>{{item.name}} {{item.model}}</p>
+          <p>{{ item.name }} {{ item.model }}</p>
           <div class="buttons"></div>
         </div>
       </div>
-            <div class="big_card" v-for="item in laminators" v-bind:key="item">
+      <div class="big_card" v-for="item in miniOvens" v-bind:key="item">
         <div class="printer">
           <div class="buttonundimg">
             <div class="instore">
@@ -190,11 +160,11 @@ if (process.client) {
             <img :src="item.pic" alt="" />
           </div>
 
-          <p>{{item.name}} {{item.model}}</p>
+          <p>{{ item.name }} {{ item.model }}</p>
           <div class="buttons"></div>
         </div>
       </div>
-            <div class="big_card" v-for="item in tablets" v-bind:key="item">
+      <div class="big_card" v-for="item in laminators" v-bind:key="item">
         <div class="printer">
           <div class="buttonundimg">
             <div class="instore">
@@ -212,7 +182,29 @@ if (process.client) {
             <img :src="item.pic" alt="" />
           </div>
 
-          <p>{{item.name}} {{item.model}}</p>
+          <p>{{ item.name }} {{ item.model }}</p>
+          <div class="buttons"></div>
+        </div>
+      </div>
+      <div class="big_card" v-for="item in tablets" v-bind:key="item">
+        <div class="printer">
+          <div class="buttonundimg">
+            <div class="instore">
+              <div class="instore1">
+                <a href="">в 7 магазинах</a>
+                <p>В наличие:</p>
+              </div>
+              <div class="numeric">
+                <button @click="readersNumber++">➕</button>
+                <p>{{ readersNumber }}</p>
+                <button @click="decrement">➖</button>
+              </div>
+            </div>
+
+            <img :src="item.pic" alt="" />
+          </div>
+
+          <p>{{ item.name }} {{ item.model }}</p>
           <div class="buttons"></div>
         </div>
       </div>

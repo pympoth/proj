@@ -11,6 +11,7 @@ function AddCart(item) {
   console.log(item);
   if (process.client) {
     let items = JSON.parse(localStorage.getItem("items")) || [];
+    item['count'] = 1
     items.push(item);
     localStorage.setItem("items", JSON.stringify(items));
     console.log(JSON.parse(localStorage.getItem("items")));
@@ -299,7 +300,7 @@ function AddCart(item) {
   position: absolute;
   width: 200px;
   height: 125px;
-  top: 90px;
+  top: 135px;
   right: 8px;
 }
 .action_cards {
